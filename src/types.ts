@@ -1,14 +1,15 @@
 import { Action as BaseAction } from 'redux';
 
-export interface Action<P = any, T extends string = string>
-  extends BaseAction<T> {
+export type Action<P = any, T extends string = string> = BaseAction<T> & {
   payload?: P;
-}
+};
 
-export interface ActionWithPayload<P = any, T extends string = string>
-  extends BaseAction<T> {
+export type ActionWithPayload<
+  P = any,
+  T extends string = string,
+> = BaseAction<T> & {
   payload: P;
-}
+};
 
 export type ActionReducer<SliceState = any, A = any> = (
   state: SliceState,
